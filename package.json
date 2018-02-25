@@ -1,0 +1,18 @@
+{
+  "name": "zadanie_14_4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  	"test": "npm run test:html && npm run test:js",
+    "test:html": "globstar nu-html-checker *.html",
+    "test:js": "jshint --show-non-errors js/script.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "globstar": "^1.0.0",
+    "jshint": "^2.9.5",
+    "nu-html-checker": "^0.1.0"
+  }
+}
