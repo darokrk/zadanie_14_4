@@ -1,5 +1,5 @@
 
-var serials = [
+var TVshows = [
 	{
 		id: 1,
 		title: 'True Detective',
@@ -36,20 +36,20 @@ var serials = [
 
 
 
-var Serial = React.createClass({
+var TVshow = React.createClass({
 	propTypes: {
-		serial: React.PropTypes.object.isRequired,
+		show: React.PropTypes.object.isRequired,
 	},
 	render() {
 		return React.createElement('li', {},
-			React.createElement(SerialTitle, {title: this.props.serial.title}),
-			React.createElement(SerialDescription, {desc: this.props.serial.desc}),
-			React.createElement(SerialImage, {image: this.props.serial.image})
+			React.createElement(TVshowTitle, {title: this.props.show.title}),
+			React.createElement(TVshowDescription, {desc: this.props.show.desc}),
+			React.createElement(TVshowImage, {image: this.props.show.image})
 		);
 	}	
 });
 
-var SerialTitle = React.createClass({
+var TVshowTitle = React.createClass({
 	propTypes: {
 		title: React.PropTypes.string.isRequired,
 	},
@@ -58,7 +58,7 @@ var SerialTitle = React.createClass({
 	}
 });
 
-var SerialDescription = React.createClass({
+var TVshowDescription = React.createClass({
 	propTypes: {
 		desc: React.PropTypes.string.isRequired,
 	},
@@ -67,7 +67,7 @@ var SerialDescription = React.createClass({
 	}
 });
 
-var SerialImage = React.createClass({
+var TVshowImage = React.createClass({
 	propTypes: {
 		image: React.PropTypes.object.isRequired,
 	},
@@ -76,21 +76,21 @@ var SerialImage = React.createClass({
 	}
 });
 
-var SerialList = React.createClass({
+var TVshowList = React.createClass({
 	propTypes: {
-		serials: React.PropTypes.array.isRequired,
+		TVshows: React.PropTypes.array.isRequired,
 	},
 	render() {
-		var serialElements = this.props.serials.map(function(serial) {
-			return React.createElement(Serial, {serial, key: serial.id})
+		var tvShowElements = this.props.TVshows.map(function(show) {
+			return React.createElement(TVshow, {show, key: show.id})
 		});
 		return React.createElement('div', {},
 			React.createElement('h1', {}, 'Moje ulubione seriale !'),
-			React.createElement('ul', {}, serialElements)
+			React.createElement('ul', {}, tvShowElements)
 		);
 	}
 });
 
-var element = React.createElement(SerialList, {serials});
+var element = React.createElement(TVshowList, {TVshows});
 
 ReactDOM.render(element, document.getElementById('app'));
